@@ -71,11 +71,12 @@ d3.json(tectonicData).then(function(data) {
   L.geoJson(data, {
     style: myStyle
   }).addTo(tectonic);
-      
+   
       // Then we add the tectonic layer to our map.
-      tectonic.addTo(map);
+    tectonic.addTo(map);
 
-      // This function returns the style data for each of the earthquakes we plot on
+      
+// This function returns the style data for each of the earthquakes we plot on
 // the map. We pass the magnitude of the earthquake into two separate functions
 // to calculate the color and radius.
 function styleInfo(feature) {
@@ -120,7 +121,7 @@ function getRadius(magnitude) {
   }
 
 // Retrieve the earthquake GeoJSON data.
-//d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
+d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
 
 // Creating a GeoJSON layer with the retrieved data.
 L.geoJson(data, {
@@ -178,8 +179,7 @@ style: styleInfo,
 	}
 	
 	// 7. Creating a GeoJSON layer with the retrieved data that adds a circle to the map 
-	// sets the style of the circle, and displays the magnitude and location of the earthquake
-	//  after the marker has been created and styled.
+	
 	L.geoJson(data, {
 		pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng);
@@ -223,5 +223,6 @@ style: styleInfo,
       return div;
   };
   legend.addTo(map);
+});
 });
 });
